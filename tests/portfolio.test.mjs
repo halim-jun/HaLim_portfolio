@@ -69,3 +69,90 @@ assert.ok(
   html.includes('I created the visualization to monitor the air quality prediction model and for communication.'),
   'Laos case should include the requested role wording'
 );
+
+assert.ok(
+  html.includes('Data science for <em>decisions that matter</em>.'),
+  'Expertise headline should remain broad and decision-oriented'
+);
+
+assert.ok(
+  html.indexOf('<section id="expertise">') < html.indexOf('<section id="projects">'),
+  'Expertise section should appear above the project grid'
+);
+
+const expertiseSection = html.slice(
+  html.indexOf('<section id="expertise">'),
+  html.indexOf('<!-- ========== PROJECTS')
+);
+
+assert.equal(
+  [...expertiseSection.matchAll(/class="ex-card/g)].length,
+  3,
+  'Expertise section should be reduced to three positioning points'
+);
+
+assert.ok(
+  expertiseSection.includes('Applied machine learning'),
+  'Expertise should include applied machine learning'
+);
+
+assert.ok(
+  expertiseSection.includes('geospatial, LLM systems, predictive modeling, and computer vision'),
+  'Applied machine learning card should mention the requested technical areas'
+);
+
+assert.ok(
+  expertiseSection.includes('Humanitarian &amp; international development'),
+  'Expertise should include humanitarian and international development'
+);
+
+assert.ok(
+  expertiseSection.includes('Operationalization'),
+  'Expertise should include operationalization'
+);
+
+assert.ok(
+  expertiseSection.includes('I create actual impact through deployed tools, dashboards, pipelines, and communication products'),
+  'Operationalization card should emphasize actual impact through built systems'
+);
+
+assert.ok(
+  html.includes('Humanitarian data, public health, geospatial AI'),
+  'Hero focus should describe broad humanitarian data interests'
+);
+
+assert.equal(
+  html.toLowerCase().includes('food security'),
+  false,
+  'Site copy should not single out food security as the target area'
+);
+
+assert.equal(
+  html.includes('not papers'),
+  false,
+  'Expertise copy should avoid negative contrast framing'
+);
+
+assert.equal(
+  html.includes('not just research'),
+  false,
+  'Focus copy should avoid negative contrast framing'
+);
+
+assert.equal(
+  html.includes('Three ways I <em>use data</em>.'),
+  false,
+  'Separate focus headline should be removed'
+);
+
+assert.equal(
+  html.includes('<section id="focus">'),
+  false,
+  'Separate focus section should be removed'
+);
+
+assert.equal(
+  html.includes('foot-tagline'),
+  false,
+  'Footer positioning tagline should be removed'
+);

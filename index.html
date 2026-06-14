@@ -853,59 +853,6 @@
     .m-results .m-r:last-child { border-bottom: none; }
   }
 
-  /* ────────── INTEREST / FOCUS ────────── */
-  #focus {
-    background: var(--blue-tint);
-  }
-  .focus-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 1rem;
-  }
-  .focus-card {
-    background: var(--paper);
-    padding: 2.5rem 2rem;
-    border: 1px solid var(--blue-soft);
-    position: relative;
-  }
-  .focus-card .f-icon {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-weight: 300;
-    font-size: 2.4rem;
-    color: var(--blue);
-    margin-bottom: 1rem;
-    line-height: 1;
-  }
-  .focus-card h4 {
-    font-family: 'Fraunces', serif;
-    font-weight: 500;
-    font-size: 1.2rem;
-    line-height: 1.3;
-    margin-bottom: 0.8rem;
-    color: var(--ink);
-  }
-  .focus-card ul { list-style: none; }
-  .focus-card li {
-    font-size: 0.88rem;
-    color: var(--ink-soft);
-    line-height: 1.5;
-    padding: 0.4rem 0;
-    border-bottom: 1px dashed var(--hairline);
-    padding-left: 1rem;
-    position: relative;
-  }
-  .focus-card li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--blue);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.75rem;
-  }
-  .focus-card li:last-child { border-bottom: none; }
-
   /* ────────── FOOTER ────────── */
   footer {
     background: var(--ink);
@@ -916,7 +863,7 @@
   }
   .foot-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 3rem;
     padding-bottom: 3rem;
     border-bottom: 1px solid rgba(250,250,247,0.15);
@@ -929,15 +876,6 @@
     color: rgba(250,250,247,0.5);
     margin-bottom: 1.2rem;
   }
-  .foot-tagline {
-    font-family: 'Fraunces', serif;
-    font-weight: 300;
-    font-size: clamp(1.5rem, 3vw, 2.2rem);
-    line-height: 1.3;
-    color: var(--paper);
-    letter-spacing: -0.015em;
-  }
-  .foot-tagline em { font-style: italic; color: #F4A574; }
   .foot-link {
     display: block;
     color: rgba(250,250,247,0.85);
@@ -977,7 +915,7 @@
     .journey-row .year { padding-right: 0; padding-bottom: 0.5rem; }
     .journey-row .meat { padding-left: 1.2rem; }
     .journey-row .meat::before { left: 0; }
-    .expertise-grid, .impact-grid, .focus-grid { grid-template-columns: 1fr; }
+    .expertise-grid, .impact-grid { grid-template-columns: 1fr; }
     .ex-card, .impact-cell { border-right: none; }
     .project { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 0; }
     .project-body .result-strip { flex-wrap: wrap; gap: 1.5rem; }
@@ -1003,9 +941,8 @@
   <div class="nav-mark">HaLim Jun<span>.</span></div>
   <div class="nav-links">
     <a href="#journey">Where</a>
-    <a href="#projects">Projects</a>
     <a href="#expertise">Expertise</a>
-    <a href="#focus">Focus</a>
+    <a href="#projects">Projects</a>
   </div>
 </nav>
 
@@ -1020,7 +957,7 @@
 
     <div class="label-stack">
       <div class="stack-line"><span class="k">Role</span><span class="v">Data Scientist · Humanitarian</span></div>
-      <div class="stack-line"><span class="k">Focus</span><span class="v">Emergency relief, food security, geospatial AI</span></div>
+      <div class="stack-line"><span class="k">Focus</span><span class="v">Humanitarian data, public health, geospatial AI</span></div>
       <div class="stack-line">
         <span class="k">Links</span>
         <span class="v">
@@ -1079,11 +1016,41 @@
   </div>
 </section>
 
+<!-- ========== EXPERTISE ========== -->
+<section id="expertise">
+  <div class="section-head">
+    <div>
+      <div class="num">§ 02 — What I Do</div>
+    </div>
+    <div>
+      <h2>Data science for <em>decisions that matter</em>.</h2>
+    </div>
+  </div>
+
+  <div class="expertise-grid">
+    <div class="ex-card reveal">
+      <div class="ex-num">i.</div>
+      <h3>Applied machine learning</h3>
+      <p class="ex-desc">I build applied machine-learning systems across <strong>geospatial, LLM systems, predictive modeling, and computer vision</strong>, with an emphasis on decisions that need to work outside a notebook.</p>
+    </div>
+    <div class="ex-card reveal">
+      <div class="ex-num">ii.</div>
+      <h3>Humanitarian &amp; international development</h3>
+      <p class="ex-desc">I work on data problems shaped by <strong>humanitarian and international-development contexts</strong>, including UNICEF country-office work, UN strategy documents, public-health analytics, and NGO collaborations.</p>
+    </div>
+    <div class="ex-card reveal">
+      <div class="ex-num">iii.</div>
+      <h3>Operationalization</h3>
+      <p class="ex-desc">I create actual impact through deployed tools, dashboards, pipelines, and communication products, including <strong>Lao PDR air-quality visualization</strong> work and Fortify Health model outputs.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ========== PROJECTS (Interactive) ========== -->
 <section id="projects">
   <div class="section-head">
     <div>
-      <div class="num">§ 02 — Selected Work</div>
+      <div class="num">§ 03 — Selected Work</div>
     </div>
     <div>
       <h2>Seven projects. <em>Click to read.</em></h2>
@@ -1254,100 +1221,9 @@
   </div>
 </div>
 
-<!-- ========== EXPERTISE ========== -->
-<section id="expertise">
-  <div class="section-head">
-    <div>
-      <div class="num">§ 03 — What I Bring</div>
-    </div>
-    <div>
-      <h2>Data work that <em>moves systems</em>, not papers.</h2>
-    </div>
-  </div>
-
-  <div class="expertise-grid">
-    <div class="ex-card reveal">
-      <div class="ex-num">i.</div>
-      <h3>UN-system fluency</h3>
-      <p class="ex-desc">Hands-on experience inside <strong>UNICEF, UNFPA, and the UN Secretariat (CRAF'd)</strong>. Comfortable with Country Programme Documents, partnership management, and the operational cadence of country offices.</p>
-    </div>
-    <div class="ex-card reveal">
-      <div class="ex-num">ii.</div>
-      <h3>Operational data science</h3>
-      <p class="ex-desc">Not research-bench prototypes — production pipelines. Ran a <strong>$1M-revenue-per-day pricing pipeline</strong> at SOCAR with monitoring, alerting, and stakeholder reporting against the C-suite.</p>
-    </div>
-    <div class="ex-card reveal">
-      <div class="ex-num">iii.</div>
-      <h3>Geospatial &amp; predictive AI</h3>
-      <p class="ex-desc">Specialist in <strong>geospatial predictive analytics</strong> — H3 hex clustering, mobility data, computer vision, and Bayesian/ML forecasting applied to humanitarian and commercial contexts alike.</p>
-    </div>
-    <div class="ex-card reveal">
-      <div class="ex-num">iv.</div>
-      <h3>NGO &amp; field empathy</h3>
-      <p class="ex-desc">Worked directly with <strong>Fortify Health (New Delhi)</strong> and a Korean student NGO running fair-trade fundraising for a sanitary facility in Lao PDR. Comfortable when the dataset is messy and the field constraints are real.</p>
-    </div>
-    <div class="ex-card reveal">
-      <div class="ex-num">v.</div>
-      <h3>LLM pipelines for policy text</h3>
-      <p class="ex-desc">Built and maintains an <strong>LLM-based text-analysis inference pipeline</strong> at UNICEF, applied to 6,000 pages of country-strategy documents — from prompt orchestration to evaluation.</p>
-    </div>
-    <div class="ex-card reveal">
-      <div class="ex-num">vi.</div>
-      <h3>Strategic communication</h3>
-      <p class="ex-desc">BCG research-analyst internship, plus years of <strong>direct C-suite reporting</strong>. Translates between modeling assumptions and operational decisions without losing either side.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ========== FOCUS ========== -->
-<section id="focus">
-  <div class="section-head">
-    <div>
-      <div class="num">§ 04 — Where I'm Heading</div>
-    </div>
-    <div>
-      <h2>Three lines I want to <em>stay on</em>.</h2>
-    </div>
-  </div>
-
-  <div class="focus-grid">
-    <div class="focus-card reveal">
-      <div class="f-icon">i.</div>
-      <h4>Emergency relief &amp; food security</h4>
-      <ul>
-        <li>Reaching the most marginalised</li>
-        <li>Tangible, near-term impact</li>
-        <li>High operational priority</li>
-      </ul>
-    </div>
-    <div class="focus-card reveal">
-      <div class="f-icon">ii.</div>
-      <h4>Operational projects, not just research</h4>
-      <ul>
-        <li>Direct work with country / regional offices</li>
-        <li>Open to collaboration with field offices in Africa &amp; Asia</li>
-        <li>Models that hit a deployment surface</li>
-      </ul>
-    </div>
-    <div class="focus-card reveal">
-      <div class="f-icon">iii.</div>
-      <h4>Specialist in data science</h4>
-      <ul>
-        <li>Predictive geospatial analytics</li>
-        <li>LLM pipelines for policy &amp; strategy text</li>
-        <li>Production-grade modelling discipline</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
 <!-- ========== FOOTER ========== -->
 <footer>
   <div class="foot-grid">
-    <div>
-      <h5>▎ Contact</h5>
-      <p class="foot-tagline">Looking to <em>collaborate</em> on humanitarian data work — particularly in food security, emergency relief, or geospatial AI.</p>
-    </div>
     <div>
       <h5>▎ Direct</h5>
       <a class="foot-link" href="mailto:haileyhalimj@gmail.com">haileyhalimj@gmail.com</a>
